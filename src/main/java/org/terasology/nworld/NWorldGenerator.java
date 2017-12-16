@@ -15,6 +15,7 @@
  */
 package org.terasology.nworld;
 
+import org.terasology.core.world.generator.facetProviders.SeaLevelProvider;
 import org.terasology.engine.SimpleUri;
 import org.terasology.registry.In;
 import org.terasology.world.generation.BaseFacetedWorldGenerator;
@@ -33,6 +34,9 @@ public class NWorldGenerator extends BaseFacetedWorldGenerator {
 
     @Override
     protected WorldBuilder createWorld() {
-        return new WorldBuilder(worldGeneratorPluginLibrary).addRasterizer(NWorldRasterizer);
+        return new WorldBuilder(worldGeneratorPluginLibrary)
+                .addProvider(new SurfaceProvider())
+                .addProvider(new SeaLevelProvider(0))
+                .addRasterizer(new NWorldRasterizer());
     }
 }
