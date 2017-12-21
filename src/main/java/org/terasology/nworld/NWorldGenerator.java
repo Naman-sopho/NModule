@@ -37,6 +37,7 @@ public class NWorldGenerator extends BaseFacetedWorldGenerator {
         return new WorldBuilder(worldGeneratorPluginLibrary)
                 .addProvider(new SurfaceProvider())
                 .addProvider(new SeaLevelProvider(0))
+                .addProvider(new MountainsProvider())
                 .addRasterizer(new NWorldRasterizer());
     }
 }
