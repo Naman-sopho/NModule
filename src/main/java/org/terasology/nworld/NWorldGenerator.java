@@ -38,6 +38,7 @@ public class NWorldGenerator extends BaseFacetedWorldGenerator {
                 .addProvider(new SurfaceProvider())
                 .addProvider(new SeaLevelProvider(0))
                 .addProvider(new MountainsProvider())
-                .addRasterizer(new NWorldRasterizer());
+                .addRasterizer(new NWorldRasterizer())
+                .addRasterizer(new HouseRasterizer());
     }
 }
