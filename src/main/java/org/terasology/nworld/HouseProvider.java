@@ -39,10 +39,10 @@ public class HouseProvider implements FacetProvider {
         for (BaseVector2i position : surfaceHeightFacet.getWorldRegion().contents()) {
             int surfaceHeight = (int) surfaceHeightFacet.getWorld(position);
 
-            //if (houseFacet.getWorldRegion().encompasses(position.getX(), surfaceHeight, position.getY())
-             //       && noise.noise(position.getX(), position.getY()) > 0) {
+            if (houseFacet.getWorldRegion().encompasses(position.getX(), surfaceHeight, position.getY())
+                    && noise.noise(position.getX(), position.getY()) > 0.99) {
                 houseFacet.setWorld(position.getX(), surfaceHeight, position.getY(), new House());
-            //}
+            }
         }
 
         region.setRegionFacet(HouseFacet.class, houseFacet);

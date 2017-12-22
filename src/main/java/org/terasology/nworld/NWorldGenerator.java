@@ -35,10 +35,14 @@ public class NWorldGenerator extends BaseFacetedWorldGenerator {
     @Override
     protected WorldBuilder createWorld() {
         return new WorldBuilder(worldGeneratorPluginLibrary)
+                .setSeaLevel(0)
                 .addProvider(new SurfaceProvider())
                 .addProvider(new SeaLevelProvider(0))
                 .addProvider(new MountainsProvider())
+                .addProvider(new HouseProvider())
                 .addRasterizer(new NWorldRasterizer())
-                .addRasterizer(new HouseRasterizer());
+                .addRasterizer(new HouseRasterizer())
+                .addPlugins();
+
     }
 }
